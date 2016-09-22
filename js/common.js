@@ -3,26 +3,26 @@
  */
 /*图片预加载*/
 
-function loadImages(arr,fnSucc,fnLoad){
+function loadImages(arr, fnSucc, fnLoad) {
     var LEN = arr.length;
     var loaded = 0;
     var result = [];
-    for(var i=0;i<arr.length;i++){
-        var oImg=new Image();
-        oImg.src='images/'+arr[i];
+    for (var i = 0; i < arr.length; i++) {
+        var oImg = new Image();
+        oImg.src = 'images/' + arr[i];
         result.push(oImg);
-        oImg.onload=function () {
+        oImg.onload = function() {
             loaded++;
-            if(loaded==LEN){
-                fnSucc&&fnSucc(result);
+            if (loaded == LEN) {
+                fnSucc && fnSucc(result);
             }
-            fnLoad(loaded,LEN);
+            fnLoad(loaded, LEN);
         }
 
     }
 }
-$(document).ready(function () {
-    var arrImages=[
+$(document).ready(function() {
+    var arrImages = [
         'bg3.jpg',
         's1/ele.png',
         's1/line.png',
@@ -67,15 +67,29 @@ $(document).ready(function () {
         's9/w1.png',
         's9/w2.png'
     ];
-    loadImages(arrImages, function(res){
+    loadImages(arrImages, function(res) {
         //res
-        setTimeout(function () {
-            $('.load').css('display','none');
-            $('.count').css('display','block');
-        },300);
+        setTimeout(function() {
+            $('.load').css('display', 'none');
+            $('.count').css('display', 'block');
+        }, 300);
 
-    },function(loaded,LEN){
-        $('load').css({'display':'block'});
+    }, function(loaded, LEN) {
+        $('load').css({ 'display': 'block' });
     });
-})
+});
 
+
+function getPos(obj) {
+    var l = 0;
+    var t = 0;
+    while (obj) {
+        l += obj.offsetLeft;
+        t += obj.offsetTop;
+        obj = obj.offsetParent;
+    }
+    return {
+        'left': l,
+        'top': t
+    };
+}

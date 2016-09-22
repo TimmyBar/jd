@@ -2,7 +2,7 @@ html{
     font-size: 20px;
 }
 body{
-    overflow: hidden;
+    // overflow: hidden;
 }
 .bg{
     width: 16rem;
@@ -84,6 +84,10 @@ body{
 }
 
 /*第一页*/
+.count div span{
+    opacity: 0;
+    filter:alpha(opacity=0);
+}
 .page1{
     width: 16rem;
     height:28.4rem/*24rem*/;
