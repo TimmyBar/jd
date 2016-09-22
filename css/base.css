@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    font-style: normal;
+    color: #000;
+    text-decoration: none;
+}
+b,strong{
+    font-weight: normal;
+}
+i,em{
+    font-style: normal;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.clearfix{
+    zoom: 1;
+}
+.lf{
+    float: left;
+}
+.fr{
+    float: right;
+}
