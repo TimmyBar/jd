@@ -1,107 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href="css/base.css" rel="stylesheet" type="text/css"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="css/bootstrap.min.css" type="text/css"/>
-
-
-
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" type="text/css" />
+    <title>Title</title>
     <script src="js/fontSize.js " type="text/javascript"></script>
     <script src="js/jquery-1.7.2.js" type="text/javascript"></script>
-    <script src="js/show.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+        var oCount = document.querySelector('.count');
+        var aDiv = document.querySelectorAll('div');
+        document.addEventListener('touchmove', fnMove, false);
 
-    <title>Title</title>
+        function fnMove() {
+            for (var i = 0; i < aDiv.length; i++) {
+                var aS = aDiv[i].children;
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var winH = document.documentElement.clientHeight;
+                var height = scrollTop + winH;
+                for (var j = 0; j < aS.length; j++) {
+                    var sH = getPos(aS[j]).top;
+                    if (height > sH) {
+                        aS[j].style.WebkitTransition = '.5s all ease ' + j / 5 + 's';
+                        aS[j].style.opacity = '1';
+                        aS[j].style.filter = 'alpha(opacity=100)';
+
+                        // function tranEnd() {
+                        //     aS[j].removeEventListener('transitionend', tranEnd, false);
+                        // }
+                        // aS[j].addEventListener('transitionend', tranEnd, false);
+                    }
+                }
+            }
+        }
+
+    }
+    </script>
 </head>
+
 <body>
-<!--load开始-->
-<div class="load" >
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="loader">
-                    <div class="loading-1"></div>
-                    <div class="loading-2">Loading...</div>
+    <!--load开始-->
+    <div class="load">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="loader">
+                        <div class="loading-1"></div>
+                        <div class="loading-2">Loading...</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!---load结束-->
-<div class="bg count" style="display: none">
-    <!--第一页开始-->
-    <div class="page1">
-        <span class="logo"></span>
-        <span class="ele"></span>
-        <span class="ta"></span>
-        <span class="p_border"></span>
-        <span class="c_border"></span>
-        <span class="theme"></span>
-        <span class="line"><img src="images/s1/line.png"/></span>
-        <span class="w1"></span>
-        <span class="w2"></span>
-        <span class="w3"></span>
+    <!---load结束-->
+    <div class="bg count" style="display: none">
+        <!--第一页开始-->
+        <div class="page1">
+            <span class="logo"></span>
+            <span class="ele"></span>
+            <span class="ta"></span>
+            <span class="p_border"></span>
+            <span class="c_border"></span>
+            <span class="theme"></span>
+            <span class="line"><img src="images/s1/line.png"/></span>
+            <span class="w1"></span>
+            <span class="w2"></span>
+            <span class="w3"></span>
+        </div>
+        <!--第一页结束-->
+        <!--第二页开始-->
+        <div class="page2">
+            <span class="map"></span>
+            <span class="ele"></span>
+            <span class="pos"></span>
+            <span class="w"></span>
+            <span class="line"><img src="images/s2/line.png"/></span>
+            <span class="ele2"></span>
+            <span class="map2"></span>
+            <span class="pos2"></span>
+            <span class="w2"></span>
+            <span class="ele3"></span>
+            <span class="pos3"></span>
+            <span class="w3"></span>
+            <span class="ele4"></span>
+            <span class="pos4"></span>
+            <span class="w4"></span>
+            <span class="ele5"></span>
+            <span class="pos5"></span>
+            <span class="w5"></span>
+            <span class="cho"></span>
+            <span class="map6"></span>
+            <span class="ele6"></span>
+            <span class="pos6"></span>
+            <span class="w6"></span>
+            <span class="ele7_0"></span>
+            <span class="ele7_1"></span>
+            <span class="ele7_2"></span>
+            <span class="ele7_3"></span>
+            <span class="ele7_4"></span>
+            <span class="line">
+                <img src="images/s8/line.png"/>
+            </span>
+            <span class="w7"></span>
+        </div>
+        <!--page2结束-->
+        <!--page3开始-->
+        <div class="page3">
+            <span class="ele2"></span>
+            <span class="p_border"></span>
+            <span class="c_border"></span>
+            <span class="w1"></span>
+            <span class="w2"></span>
+            <span class="ele"></span>
+        </div>
+        <!--page3结束-->
     </div>
-    <!--第一页结束-->
-    <!--第二页开始-->
-    <div class="page2">
-
-        <span class="map"></span>
-        <span class="ele"></span>
-        <span class="pos"></span>
-        <span class="w"></span>
-        <span class="line"><img src="images/s2/line.png"/></span>
-
-        <span class="ele2"></span>
-        <span class="map2"></span>
-        <span class="pos2"></span>
-        <span class="w2"></span>
-
-        <span class="ele3"></span>
-        <span class="pos3"></span>
-        <span class="w3"></span>
-
-        <span class="ele4"></span>
-        <span class="pos4"></span>
-        <span class="w4"></span>
-
-        <span class="ele5"></span>
-        <span class="pos5"></span>
-        <span class="w5"></span>
-        <span class="cho"></span>
-
-        <span class="map6"></span>
-        <span class="ele6"></span>
-        <span class="pos6"></span>
-        <span class="w6"></span>
-
-
-        <span class="ele7_0"></span>
-        <span class="ele7_1"></span>
-        <span class="ele7_2"></span>
-        <span class="ele7_3"></span>
-        <span class="ele7_4"></span>
-        <span class="line">
-            <img src="images/s8/line.png"/>
-        </span>
-        <span class="w7"></span>
-
-    </div>
-    <!--page2结束-->
-    <!--page3开始-->
-    <div class="page3">
-        <span class="ele2"></span>
-        <span class="p_border"></span>
-        <span class="c_border"></span>
-        <span class="w1"></span>
-        <span class="w2"></span>
-        <span class="ele"></span>
-    </div>
-    <!--page3结束-->
-</div>
 </body>
+
 </html>
